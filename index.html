@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <!-- MENU ENCABEZADO -->
+    <div class="contenedor-header">
+        <header>
+            <div class="logo">
+                <a href="#">ADOLFO</a>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
+                    <li><a href="#sobremi" onclick="seleccionar()">SOBRE MI</a></li>
+                    <li><a href="#skills" onclick="seleccionar()">SKILLS</a></li>
+                    <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
+                    <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
+                    <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
+                </ul>
+            </nav>
+            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+    </div>
+
+    <!-- SECCION INICIO -->
+    <section id="inicio" class="inicio">
+        <div class="contenido-banner">
+            <div class="contenedor-img">
+                <img src="img/perfil.jpg" alt="">
+            </div>
+            <h1>ADOLFO HERRERA</h1>
+            <h2>Ingeniero de Software - Experto UI/UX</h2>
+            <div class="redes">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION SOBRE MI -->
+    <section id="sobremi" class="sobremi">
+        <div class="contenido-seccion">
+            <h2>Sobre Mí</h2>
+            <p><span>Hola, soy Adolfo Herrera.</span> Ingeniero en sistemas informáticos especializado en páginas web informativas y marketing digital. Experto en el desarrollo de experiencias en línea efectivas y coordinación de proyectos. Líder apasionado con sólidos conocimientos técnicos y enfoque innovador.</p>
+
+            <div class="fila">
+                <!-- datos personales -->
+                <div class="col">
+                    <h3>Datos Personales</h3>
+                    <ul>
+                        <li>
+                            <strong>Cumpleaños</strong>
+                            5/11/1994
+                        </li>
+                        <li>
+                            <strong>Teléfono</strong>
+                            +503 7225-4665
+                        </li>
+                        <li>
+                            <strong>Email</strong>
+                            jahf_94@live.com
+                        </li>
+                       <!--
+                          <li>
+                            <strong>Website</strong>
+                            www.example.com
+                          </li>
+                       --> 
+                        <li>
+                            <strong>Dirección</strong>
+                            San Miguel, El Salvador
+                        </li>
+                        <li>
+                            <strong>Cargo</strong>
+                            <span>FREELANCE</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- intereses -->
+                <div class="col">
+                    <h3>Intereses</h3>
+                    <div class="contenedor-intereses">
+                        <div class="interes">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span>JUEGOS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-headphones"></i>
+                            <span>MUSICA</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-plane"></i>
+                            <span>VIAJAR</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-earth"></i>
+                            <span>MARKETING</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-person-hiking"></i>
+                            <span>DEPORTE</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-book"></i>
+                            <span>LIBROS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-computer"></i>
+                            <span>TECNOLOGIA</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-camera"></i>
+                            <span>FOTOS</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <a href="http://wa.me/72254665"> <button>
+                Contactame <i class="fa-brands fa-whatsapp"></i>
+                <span class="overlay"></span>
+            </button></a>
+           
+        </div>
+    </section>
+
+    <!-- SECCION SKILLS -->
+    <section class="skills" id="skills">
+        <div class="contenido-seccion">
+            <h2>Habilidades</h2>
+            <div class="fila">
+                <!-- Technical Skill -->
+                <div class="col">
+                    <h3>Technical Skills</h3>
+                    <div class="skill">
+                        <span>Javascript</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>HTML & CSS</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>89%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Photoshop</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>95%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Wordpress</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>81%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>PHP</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>75%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Professional Skills -->
+                <div class="col">
+                    <h3>Professional Skills</h3>
+                    <div class="skill">
+                        <span>Comunicación</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>80%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Trabajo en Equipo</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>70%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Creatividad</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>99%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Dedicación</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>100%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Proyect Management</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>80%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION CURRICULUM -->
+    <section id="curriculum" class="curriculum">
+        <div class="contenido-seccion">
+            <h2>Curriculum</h2>
+            <div class="fila">
+                <div class="col izquierda">
+                    <h3>Educación</h3>
+                    <div class="item izq">
+                        <h4>Ingeniero en sistemas Informaticos</h4>
+                        <span class="casa">Universidad de Oriente</span>
+                        <span class="fecha">2015 - 2021</span>
+                        <p>Durante la carrera de Ingeniería en Sistemas Informáticos en la Universidad de Oriente, he adquirido un sólido conocimiento en el diseño, desarrollo y mantenimiento de sistemas informáticos complejos. He explorado a fondo la programación, las bases de datos, las redes y la seguridad informática. Además, he desarrollado habilidades para abordar desafíos tecnológicos, trabajar en equipo y liderar proyectos, lo que me permite enfrentar con confianza los diversos aspectos de la informática en el mundo actual.</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                    <div class="item izq">
+                        <h4>Liderazgo Empresarial y Finanzas para no financieros</h4>
+                        <span class="casa">Universidad de Oriente y LWR</span>
+                        <span class="fecha">2021</span>
+                        <p>En el curso de Liderazgo Empresarial y Finanzas para No Financieros, he fortalecido mis habilidades para liderar equipos y tomar decisiones estratégicas en un entorno empresarial. A través de un enfoque práctico, he adquirido conocimientos fundamentales en finanzas, lo que me permite comprender y contribuir de manera más efectiva al éxito financiero de una organización. Este curso ha ampliado mi perspectiva y me ha proporcionado las herramientas necesarias para desempeñarme con confianza en roles de liderazgo y gestión financiera.</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                    <div class="item izq">
+                        <h4>Administrativo Contable</h4>
+                        <span class="casa">Instituto Nacional Isidro Menendez</span>
+                        <span class="fecha">2012 - 2014</span>
+                        <p>Durante mi bachillerato técnico vocacional en Administrativo Contable, he adquirido habilidades especializadas en contabilidad y administración. He desarrollado competencias prácticas en la gestión financiera, análisis de datos y aplicación de principios contables. Este programa ha sentado las bases para comprender y aplicar eficientemente los procesos administrativos y contables en entornos profesionales.</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col derecha">
+                    <h3>Experiencia de trabajo</h3>
+                    <div class="item der">
+                        <h4>Docente permanente</h4>
+                        <span class="casa">ITCA-FEPADE SAN MIGUEL</span>
+                        <span class="fecha">2023 - La fecha</span>
+                        <p>Como docente permanente en la escuela de computación, me especializo en impartir clases de desarrollo de software e infraestructura de redes informáticas. Mi enfoque es guiar a los estudiantes para que adquieran habilidades prácticas y conocimientos teóricos, preparándolos para carreras exitosas en el ámbito tecnológico.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                    <div class="item der">
+                        <h4>Encargado del Dpto. de Cámaras</h4>
+                        <span class="casa">Inversiones Medicas San Francisco</span>
+                        <span class="fecha">2021 - 2023</span>
+                        <p>Como encargado del Departamento de Cámaras, brindo apoyo en la administración y lidero el área de seguridad. Mi responsabilidad incluye la gestión eficiente de sistemas de cámaras de vigilancia y colaboración en tareas administrativas relacionadas con la seguridad. Coordinando al personal de seguridad, contribuyo a crear un entorno seguro mediante la supervisión y ejecución de iniciativas y procedimientos de seguridad.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                    <div class="item der">
+                        <h4>SCRUM MASTER</h4>
+                        <span class="casa">FOCUS Marketing digital y TIC</span>
+                        <span class="fecha">2019 - A la fecha</span>
+                        <p>Mi rol es facilitar la metodología ágil SCRUM, asegurando su implementación efectiva en equipos de desarrollo. Dirijo y optimizo procesos, fomento la colaboración entre los miembros del equipo y elimino obstáculos para garantizar la entrega exitosa de proyectos. Mi enfoque incluye la gestión eficiente de recursos, la comunicación clara y la adaptabilidad para lograr resultados sobresalientes en el desarrollo de software.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+        <div class="contenido-seccion">
+            <h2>PORTFOLIO</h2>
+            <div class="galeria">
+                <div class="proyecto">
+                    <img src="img/p1.jpg" alt="">
+                    <div class="overlay">
+                        <h3>Diseño de paginas Web</h3>
+                        <p>Informativas</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="img/p2.jpg" alt="">
+                    <div class="overlay">
+                        <h3>Creación e implementación</h3>
+                        <p>de Marcas</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="img/p3.png" alt="">
+                    <div class="overlay">
+                        <h3>Diseño de Logos</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="img/p4.jpg" alt="">
+                    <div class="overlay">
+                        <h3>Diseño Grafico</h3>
+                        <p>Para redes sociales</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="img/p5.jpg" alt="">
+                    <div class="overlay">
+                        <h3>Diesarrollo de aplicaciones</h3>
+                        <p>WEB</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="img/p7.png" alt="">
+                    <div class="overlay">
+                        <h3>Fotografía</h3>
+                        <p>Profesional</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION CONTACTO -->
+    <section id="contacto" class="contacto">
+        <div class="contenido-seccion">
+            <h2>CONTACTO</h2>
+            <form name="form1" method="POST" onsubmit="return Comprobar(this)" action= "mailto:jahf_94@live.com?subject=asunto" enctype ="text/plain" >
+                
+            <div class="fila">
+                <!-- Formulario -->
+                   <div class="col">
+                        <input type="text" placeholder="Tú Nombre">
+                        <input type="text" placeholder="Número telefónico">
+                        <input type="text" placeholder="Dirección de correo">
+                        <input type="text" placeholder="Tema">
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
+                        <button>
+                            Enviar Mensaje<i class="fa-solid fa-paper-plane"></i>
+                            <span class="overlay"></span>
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Mapa -->
+                <div class="col">
+                    <img src="img/maps.PNG" alt="">
+                    <div class="info">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                San Miguel, El Salvador
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-mobile-screen"></i>
+                                Llamanos: +503 7225-4665
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-envelope"></i>
+                                Email: jahf_94@live.com
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="http://wa.me/72254665"> <button>
+                        Contactame <i class="fa-brands fa-whatsapp"></i>
+                        <span class="overlay"></span>
+                    </button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <a href="#inicio" class="arriba">
+            <i class="fa-solid fa-angles-up"></i>
+        </a>
+        <div class="redes">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

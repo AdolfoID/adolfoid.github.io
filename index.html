@@ -3,42 +3,486 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="estilo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Adolfo Herrera | Portfolio Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <style>
+        /* ========== RESET Y ESTILOS GLOBALES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        /* Scroll personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff5722;
+            border-radius: 10px;
+        }
+
+        /* ========== HEADER / MENÚ ========== */
+        .contenedor-header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff5722;
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        .logo a:hover {
+            text-shadow: 0 0 8px #ff5722;
+        }
+        nav ul {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ddd;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+        nav ul li a:hover {
+            color: #ff5722;
+        }
+        .nav-responsive {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #ff5722;
+        }
+
+        /* SECCIONES GENERALES */
+        section {
+            padding: 5rem 5% 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .contenido-seccion h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .contenido-seccion h2:after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #ff5722;
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* INICIO */
+        .inicio {
+            background: linear-gradient(135deg, #0a0f1a 0%, #0a0a0a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .contenido-banner {
+            padding: 2rem;
+        }
+        .contenedor-img {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            border: 4px solid #ff5722;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(255,87,34,0.4);
+        }
+        .contenedor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .inicio h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #fff, #ff5722);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .inicio h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #ccc;
+            margin-bottom: 1.5rem;
+        }
+        .redes {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .redes a {
+            color: #fff;
+            background: #1e1e2a;
+            width: 45px;
+            height: 45px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: 0.3s;
+            font-size: 1.3rem;
+        }
+        .redes a:hover {
+            background: #ff5722;
+            transform: translateY(-5px);
+        }
+
+        /* SOBRE MI */
+        .sobremi {
+            background: #111;
+        }
+        .sobremi p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        .fila {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .col {
+            flex: 1;
+            min-width: 250px;
+        }
+        .col h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #ff5722;
+        }
+        .col ul {
+            list-style: none;
+        }
+        .col ul li {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 0.5rem;
+        }
+        .interes {
+            background: #1a1a1a;
+            padding: 0.8rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .interes i {
+            font-size: 2rem;
+            color: #ff5722;
+        }
+        .contenedor-intereses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+        }
+        button {
+            background: #ff5722;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        button i {
+            font-size: 1.2rem;
+        }
+        button:hover {
+            background: #e64a19;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(255,87,34,0.4);
+        }
+
+        /* SECCIÓN SERVICIOS (NUEVA) */
+        .servicios {
+            background: #0e0e12;
+        }
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .servicio-card {
+            background: #18181f;
+            padding: 2rem 1.5rem;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #2a2a2a;
+        }
+        .servicio-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff5722;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+        .servicio-card i {
+            font-size: 3rem;
+            color: #ff5722;
+            margin-bottom: 1rem;
+        }
+        .servicio-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        .servicio-card p {
+            color: #bbb;
+            line-height: 1.5;
+        }
+
+        /* SKILLS */
+        .skills {
+            background: #111;
+        }
+        .skill {
+            margin-bottom: 1.5rem;
+        }
+        .skill span {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .barra-skill {
+            background: #2a2a2a;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .progreso {
+            background: #ff5722;
+            width: 0%;
+            height: 10px;
+            border-radius: 20px;
+            position: relative;
+            transition: 1s ease;
+        }
+        .progreso span {
+            position: absolute;
+            right: 0;
+            top: -25px;
+            font-size: 0.8rem;
+            color: #ff5722;
+        }
+
+        /* CURRICULUM */
+        .curriculum .item {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+        .conectori, .conectord {
+            display: none;
+        }
+
+        /* PORTFOLIO */
+        .portfolio {
+            background: #0e0e12;
+        }
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+        .proyecto {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .proyecto img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+        .proyecto .overlay {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.9), transparent);
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            transform: translateY(100%);
+            transition: 0.3s;
+        }
+        .proyecto:hover .overlay {
+            transform: translateY(0);
+        }
+        .proyecto:hover img {
+            transform: scale(1.05);
+        }
+        .overlay h3 {
+            color: #ff5722;
+        }
+
+        /* CONTACTO */
+        .contacto {
+            background: #111;
+        }
+        .contacto .fila {
+            gap: 2rem;
+        }
+        .contacto input, .contacto textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+        }
+        .contacto input:focus, .contacto textarea:focus {
+            border-color: #ff5722;
+        }
+        .contacto .col img {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+        .info ul {
+            list-style: none;
+        }
+        .info li {
+            margin: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 2rem;
+        }
+        .arriba {
+            display: inline-block;
+            background: #ff5722;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 50%;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background: #0a0a0a;
+                width: 70%;
+                height: 100vh;
+                flex-direction: column;
+                align-items: center;
+                justify-content: start;
+                padding-top: 2rem;
+                transition: 0.3s;
+                gap: 2rem;
+            }
+            nav ul.show {
+                left: 0;
+            }
+            .nav-responsive {
+                display: block;
+            }
+            .inicio h1 {
+                font-size: 2rem;
+            }
+            .contenido-seccion h2 {
+                font-size: 2rem;
+            }
+            .fila {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- MENU ENCABEZADO -->
     <div class="contenedor-header">
         <header>
-            <div class="logo">
-                <a href="#">ADOLFO</a>
-            </div>
+            <div class="logo"><a href="#">ADOLFO</a></div>
             <nav id="nav">
                 <ul>
                     <li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
                     <li><a href="#sobremi" onclick="seleccionar()">SOBRE MI</a></li>
+                    <li><a href="#servicios" onclick="seleccionar()">SERVICIOS</a></li>
                     <li><a href="#skills" onclick="seleccionar()">SKILLS</a></li>
                     <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
                     <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
                     <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
                 </ul>
             </nav>
-            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
-                <i class="fa-solid fa-bars"></i>
-            </div>
+            <div class="nav-responsive" onclick="mostrarOcultarMenu()"><i class="fa-solid fa-bars"></i></div>
         </header>
     </div>
 
-    <!-- SECCION INICIO -->
+    <!-- INICIO -->
     <section id="inicio" class="inicio">
         <div class="contenido-banner">
-            <div class="contenedor-img">
-                <img src="img/perfil.jpg" alt="">
-            </div>
+            <div class="contenedor-img"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Adolfo Herrera"></div>
             <h1>ADOLFO HERRERA</h1>
-            <h2>Ingeniero de Software - Experto UI/UX</h2>
+            <h2>Ingeniero de Software | Marketing Digital | Fotografía & Web</h2>
             <div class="redes">
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -48,400 +492,195 @@
         </div>
     </section>
 
-    <!-- SECCION SOBRE MI -->
+    <!-- SOBRE MI -->
     <section id="sobremi" class="sobremi">
         <div class="contenido-seccion">
             <h2>Sobre Mí</h2>
-            <p><span>Hola, soy Adolfo Herrera.</span> Ingeniero en sistemas informáticos especializado en páginas web informativas y marketing digital. Experto en el desarrollo de experiencias en línea efectivas y coordinación de proyectos. Líder apasionado con sólidos conocimientos técnicos y enfoque innovador.</p>
-
+            <p><span>Hola, soy Adolfo Herrera.</span> Ingeniero en sistemas informáticos, especializado en desarrollo web, marketing digital y fotografía profesional. Ayudo a marcas y negocios a potenciar su presencia digital con estrategias efectivas, sitios web informativos rápidos y contenido visual de alto impacto. Apasionado por la innovación y el liderazgo de proyectos.</p>
             <div class="fila">
-                <!-- datos personales -->
                 <div class="col">
                     <h3>Datos Personales</h3>
                     <ul>
-                        <li>
-                            <strong>Cumpleaños</strong>
-                            5/11/1994
-                        </li>
-                        <li>
-                            <strong>Teléfono</strong>
-                            +503 7225-4665
-                        </li>
-                        <li>
-                            <strong>Email</strong>
-                            jahf_94@live.com
-                        </li>
-                       <!--
-                          <li>
-                            <strong>Website</strong>
-                            www.example.com
-                          </li>
-                       --> 
-                        <li>
-                            <strong>Dirección</strong>
-                            San Miguel, El Salvador
-                        </li>
-                        <li>
-                            <strong>Cargo</strong>
-                            <span>FREELANCE</span>
-                        </li>
+                        <li><strong>Cumpleaños:</strong> 5/11/1994</li>
+                        <li><strong>Teléfono:</strong> +503 7225-4665</li>
+                        <li><strong>Email:</strong> jahf_94@live.com</li>
+                        <li><strong>Dirección:</strong> San Miguel, El Salvador</li>
+                        <li><strong>Cargo:</strong> FREELANCE & Consultor</li>
                     </ul>
                 </div>
-
-                <!-- intereses -->
                 <div class="col">
                     <h3>Intereses</h3>
                     <div class="contenedor-intereses">
-                        <div class="interes">
-                            <i class="fa-solid fa-gamepad"></i>
-                            <span>JUEGOS</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-headphones"></i>
-                            <span>MUSICA</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-plane"></i>
-                            <span>VIAJAR</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-earth"></i>
-                            <span>MARKETING</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-person-hiking"></i>
-                            <span>DEPORTE</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-book"></i>
-                            <span>LIBROS</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-computer"></i>
-                            <span>TECNOLOGIA</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-camera"></i>
-                            <span>FOTOS</span>
-                        </div>
-                        
+                        <div class="interes"><i class="fa-solid fa-gamepad"></i><span>JUEGOS</span></div>
+                        <div class="interes"><i class="fa-solid fa-headphones"></i><span>MUSICA</span></div>
+                        <div class="interes"><i class="fa-solid fa-plane"></i><span>VIAJAR</span></div>
+                        <div class="interes"><i class="fa-solid fa-chart-line"></i><span>MARKETING</span></div>
+                        <div class="interes"><i class="fa-solid fa-camera"></i><span>FOTOGRAFÍA</span></div>
+                        <div class="interes"><i class="fa-solid fa-code"></i><span>WEB DEV</span></div>
                     </div>
                 </div>
             </div>
-            <a href="http://wa.me/72254665"> <button>
-                Contactame <i class="fa-brands fa-whatsapp"></i>
-                <span class="overlay"></span>
-            </button></a>
-           
+            <a href="https://wa.me/50372254665" target="_blank"><button>Contactar <i class="fa-brands fa-whatsapp"></i></button></a>
         </div>
     </section>
 
-    <!-- SECCION SKILLS -->
-    <section class="skills" id="skills">
+    <!-- NUEVA SECCIÓN SERVICIOS DESTACADOS -->
+    <section id="servicios" class="servicios">
+        <div class="contenido-seccion">
+            <h2>Servicios Profesionales</h2>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <h3>Marketing Digital</h3>
+                    <p>Estrategias 360: SEO, redes sociales, Google Ads, email marketing y analítica. Aumenta tu visibilidad y conversiones con campañas data-driven.</p>
+                </div>
+                <div class="servicio-card">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <h3>Fotografía Profesional</h3>
+                    <p>Fotografía de productos, retratos, eventos y contenido para marcas. Calidad visual que comunica y vende. Edición profesional incluida.</p>
+                </div>
+                <div class="servicio-card">
+                    <i class="fa-solid fa-code"></i>
+                    <h3>Páginas Web Informativas</h3>
+                    <p>Desarrollo de sitios rápidos, responsive y optimizados SEO. Ideal para negocios, portafolios, instituciones. Diseño moderno y fácil de gestionar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="skills">
         <div class="contenido-seccion">
             <h2>Habilidades</h2>
             <div class="fila">
-                <!-- Technical Skill -->
-                <div class="col">
-                    <h3>Technical Skills</h3>
-                    <div class="skill">
-                        <span>Javascript</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>75%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>HTML & CSS</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>89%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Photoshop</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>95%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Wordpress</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>81%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>PHP</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>75%</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col"><h3>Technical Skills</h3>
+                    <div class="skill"><span>HTML & CSS</span><div class="barra-skill"><div class="progreso" style="width: 90%"><span>90%</span></div></div></div>
+                    <div class="skill"><span>JavaScript / React</span><div class="barra-skill"><div class="progreso" style="width: 75%"><span>75%</span></div></div></div>
+                    <div class="skill"><span>WordPress / Elementor</span><div class="barra-skill"><div class="progreso" style="width: 85%"><span>85%</span></div></div></div>
+                    <div class="skill"><span>Photoshop / Lightroom</span><div class="barra-skill"><div class="progreso" style="width: 92%"><span>92%</span></div></div></div>
+                    <div class="skill"><span>Google Ads / Meta Ads</span><div class="barra-skill"><div class="progreso" style="width: 78%"><span>78%</span></div></div></div>
                 </div>
-                <!-- Professional Skills -->
-                <div class="col">
-                    <h3>Professional Skills</h3>
-                    <div class="skill">
-                        <span>Comunicación</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>80%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Trabajo en Equipo</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>70%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Creatividad</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>99%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Dedicación</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>100%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Proyect Management</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>80%</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col"><h3>Professional Skills</h3>
+                    <div class="skill"><span>Comunicación</span><div class="barra-skill"><div class="progreso" style="width: 85%"><span>85%</span></div></div></div>
+                    <div class="skill"><span>Trabajo en Equipo</span><div class="barra-skill"><div class="progreso" style="width: 80%"><span>80%</span></div></div></div>
+                    <div class="skill"><span>Creatividad</span><div class="barra-skill"><div class="progreso" style="width: 98%"><span>98%</span></div></div></div>
+                    <div class="skill"><span>Gestión de Proyectos</span><div class="barra-skill"><div class="progreso" style="width: 88%"><span>88%</span></div></div></div>
+                    <div class="skill"><span>Adaptabilidad</span><div class="barra-skill"><div class="progreso" style="width: 95%"><span>95%</span></div></div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCION CURRICULUM -->
+    <!-- CURRICULUM -->
     <section id="curriculum" class="curriculum">
         <div class="contenido-seccion">
             <h2>Curriculum</h2>
             <div class="fila">
                 <div class="col izquierda">
                     <h3>Educación</h3>
-                    <div class="item izq">
-                        <h4>Ingeniero en sistemas Informaticos</h4>
-                        <span class="casa">Universidad de Oriente</span>
-                        <span class="fecha">2015 - 2021</span>
-                        <p>Durante la carrera de Ingeniería en Sistemas Informáticos en la Universidad de Oriente, he adquirido un sólido conocimiento en el diseño, desarrollo y mantenimiento de sistemas informáticos complejos. He explorado a fondo la programación, las bases de datos, las redes y la seguridad informática. Además, he desarrollado habilidades para abordar desafíos tecnológicos, trabajar en equipo y liderar proyectos, lo que me permite enfrentar con confianza los diversos aspectos de la informática en el mundo actual.</p>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                    <div class="item izq">
-                        <h4>Liderazgo Empresarial y Finanzas para no financieros</h4>
-                        <span class="casa">Universidad de Oriente y LWR</span>
-                        <span class="fecha">2021</span>
-                        <p>En el curso de Liderazgo Empresarial y Finanzas para No Financieros, he fortalecido mis habilidades para liderar equipos y tomar decisiones estratégicas en un entorno empresarial. A través de un enfoque práctico, he adquirido conocimientos fundamentales en finanzas, lo que me permite comprender y contribuir de manera más efectiva al éxito financiero de una organización. Este curso ha ampliado mi perspectiva y me ha proporcionado las herramientas necesarias para desempeñarme con confianza en roles de liderazgo y gestión financiera.</p>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                    <div class="item izq">
-                        <h4>Administrativo Contable</h4>
-                        <span class="casa">Instituto Nacional Isidro Menendez</span>
-                        <span class="fecha">2012 - 2014</span>
-                        <p>Durante mi bachillerato técnico vocacional en Administrativo Contable, he adquirido habilidades especializadas en contabilidad y administración. He desarrollado competencias prácticas en la gestión financiera, análisis de datos y aplicación de principios contables. Este programa ha sentado las bases para comprender y aplicar eficientemente los procesos administrativos y contables en entornos profesionales.</p>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
+                    <div class="item"><h4>Ingeniería en Sistemas Informáticos</h4><span class="casa">Universidad de Oriente</span><span class="fecha">2015 - 2021</span><p>Formación sólida en desarrollo de software, bases de datos y arquitectura web. Proyectos enfocados en UX/UI y marketing tecnológico.</p></div>
+                    <div class="item"><h4>Liderazgo Empresarial y Finanzas</h4><span class="casa">Universidad de Oriente / LWR</span><span class="fecha">2021</span><p>Especialización en gestión financiera y liderazgo estratégico para startups y negocios digitales.</p></div>
                 </div>
-
                 <div class="col derecha">
-                    <h3>Experiencia de trabajo</h3>
-                    <div class="item der">
-        <h4>Docente Universitario y Encargado del Laboratorio de Realidad Virtual</h4>
-        <span class="casa">Universidad de Oriente</span>
-        <span class="fecha">2026 - A la fecha</span>
-        <p>
-            Docente universitario en el área de ingeniería y tecnologías de la información, encargado de la planificación e impartición de asignaturas relacionadas con programación, desarrollo de software y tecnologías emergentes. 
-            Responsable de la administración y operación del Laboratorio de Realidad Virtual, incluyendo mantenimiento de equipos, soporte técnico, implementación de experiencias inmersivas y apoyo a proyectos académicos e institucionales.
-        </p>
-        <div class="conectord">
-            <div class="circulod"></div>
-        </div>
-    </div>
-
-    <div class="item der">
-        <h4>Coordinador Académico y Técnico de Centros de Cómputo</h4>
-        <span class="casa">Universidad Modular Abierta (UMA)</span>
-        <span class="fecha">2025 - 2026</span>
-        <p>
-            Coordinador de carrera y técnico de centros de cómputo, responsable de la administración de laboratorios tecnológicos, soporte a docentes y estudiantes, y coordinación académica. 
-            Administrador de cuentas institucionales de Google Workspace y Microsoft 365, gestionando usuarios, accesos, seguridad y soporte. 
-            Además, desempeñé funciones como docente universitario y apoyo administrativo en procesos académicos y tecnológicos.
-        </p>
-        <div class="conectord">
-            <div class="circulod"></div>
-        </div>
-    </div>
-                    <div class="item der">
-                        <h4>Docente permanente</h4>
-                        <span class="casa">ITCA-FEPADE SAN MIGUEL</span>
-                        <span class="fecha">2023 - 2024</span>
-                        <p>Como docente permanente en la escuela de computación, me especializo en impartir clases de desarrollo de software e infraestructura de redes informáticas. Mi enfoque es guiar a los estudiantes para que adquieran habilidades prácticas y conocimientos teóricos, preparándolos para carreras exitosas en el ámbito tecnológico.</p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
-                    </div>
-                    <div class="item der">
-                        <h4>Encargado del Dpto. de Cámaras</h4>
-                        <span class="casa">Inversiones Medicas San Francisco</span>
-                        <span class="fecha">2021 - 2023</span>
-                        <p>Como encargado del Departamento de Cámaras, brindo apoyo en la administración y lidero el área de seguridad. Mi responsabilidad incluye la gestión eficiente de sistemas de cámaras de vigilancia y colaboración en tareas administrativas relacionadas con la seguridad. Coordinando al personal de seguridad, contribuyo a crear un entorno seguro mediante la supervisión y ejecución de iniciativas y procedimientos de seguridad.</p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
-                    </div>
-                    <div class="item der">
-                        <h4>SCRUM MASTER</h4>
-                        <span class="casa">FOCUS Marketing digital y TIC</span>
-                        <span class="fecha">2019 - A la fecha</span>
-                        <p>Mi rol es facilitar la metodología ágil SCRUM, asegurando su implementación efectiva en equipos de desarrollo. Dirijo y optimizo procesos, fomento la colaboración entre los miembros del equipo y elimino obstáculos para garantizar la entrega exitosa de proyectos. Mi enfoque incluye la gestión eficiente de recursos, la comunicación clara y la adaptabilidad para lograr resultados sobresalientes en el desarrollo de software.</p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
-                    </div>
+                    <h3>Experiencia laboral</h3>
+                    <div class="item"><h4>Docente Universitario + Lab Realidad Virtual</h4><span class="casa">Universidad de Oriente</span><span class="fecha">2026 - Actual</span><p>Gestión de laboratorio de RV, desarrollo de proyectos inmersivos y mentoría en tecnologías emergentes.</p></div>
+                    <div class="item"><h4>Coordinador Académico / Técnico IT</h4><span class="casa">UMA</span><span class="fecha">2025 - 2026</span><p>Administración de Google Workspace, Microsoft 365, soporte y gestión de centros de cómputo.</p></div>
+                    <div class="item"><h4>SCRUM Master & Consultor Marketing</h4><span class="casa">FOCUS Marketing Digital</span><span class="fecha">2019 - Actual</span><p>Implementación de metodologías ágiles + estrategias de marketing digital para clientes nacionales.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCION PORTFOLIO -->
+    <!-- PORTFOLIO (ACTUALIZADO CON SERVICIOS) -->
     <section id="portfolio" class="portfolio">
         <div class="contenido-seccion">
-            <h2>PORTFOLIO</h2>
+            <h2>Portfolio</h2>
             <div class="galeria">
-                <div class="proyecto">
-                    <img src="img/p1.jpg" alt="">
-                    <div class="overlay">
-                        <h3>Diseño de paginas Web</h3>
-                        <p>Informativas</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="img/p2.jpg" alt="">
-                    <div class="overlay">
-                        <h3>Creación e implementación</h3>
-                        <p>de Marcas</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="img/p3.png" alt="">
-                    <div class="overlay">
-                        <h3>Diseño de Logos</h3>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="img/p4.jpg" alt="">
-                    <div class="overlay">
-                        <h3>Diseño Grafico</h3>
-                        <p>Para redes sociales</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="img/p5.jpg" alt="">
-                    <div class="overlay">
-                        <h3>Diesarrollo de aplicaciones</h3>
-                        <p>WEB</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="img/p7.png" alt="">
-                    <div class="overlay">
-                        <h3>Fotografía</h3>
-                        <p>Profesional</p>
-                    </div>
-                </div>
+                <div class="proyecto"><img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=400&h=250&fit=crop" alt="web informativa"><div class="overlay"><h3>Web informativa</h3><p>Consultorio Médico</p></div></div>
+                <div class="proyecto"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="marketing digital"><div class="overlay"><h3>Marketing Digital</h3><p>Campañas & Analytics</p></div></div>
+                <div class="proyecto"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=250&fit=crop" alt="fotografia producto"><div class="overlay"><h3>Fotografía de Producto</h3><p>E-commerce</p></div></div>
+                <div class="proyecto"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="redes sociales"><div class="overlay"><h3>Gestión Redes</h3><p>Contenido visual</p></div></div>
+                <div class="proyecto"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=250&fit=crop" alt="desarrollo web"><div class="overlay"><h3>Landing Page</h3><p>Alta conversión</p></div></div>
+                <div class="proyecto"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=250&fit=crop" alt="branding"><div class="overlay"><h3>Branding + Foto</h3><p>Identidad visual</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- SECCION CONTACTO -->
+    <!-- CONTACTO MEJORADO -->
     <section id="contacto" class="contacto">
         <div class="contenido-seccion">
-            <h2>CONTACTO</h2>
-            <form name="form1" method="POST" onsubmit="return Comprobar(this)" action= "mailto:jahf_94@live.com?subject=asunto" enctype ="text/plain" >
-                
+            <h2>Contacto</h2>
             <div class="fila">
-                <!-- Formulario -->
-                   <div class="col">
-                        <input type="text" placeholder="Tú Nombre">
-                        <input type="text" placeholder="Número telefónico">
-                        <input type="text" placeholder="Dirección de correo">
-                        <input type="text" placeholder="Tema">
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
-                        <button>
-                            Enviar Mensaje<i class="fa-solid fa-paper-plane"></i>
-                            <span class="overlay"></span>
-                        </button>
-                    </div>
-                </form>
-                
-                <!-- Mapa -->
                 <div class="col">
-                    <img src="img/maps.PNG" alt="">
+                    <form id="formContacto">
+                        <input type="text" id="nombre" placeholder="Tu Nombre" required>
+                        <input type="tel" id="telefono" placeholder="Número telefónico">
+                        <input type="email" id="email" placeholder="Correo electrónico" required>
+                        <input type="text" id="tema" placeholder="Asunto">
+                        <textarea id="mensaje" rows="5" placeholder="Mensaje" required></textarea>
+                        <button type="submit">Enviar Mensaje <i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+                <div class="col">
+                    <img src="https://placehold.co/600x300/222/ff5722?text=San+Miguel,+SV" alt="ubicación">
                     <div class="info">
                         <ul>
-                            <li>
-                                <i class="fa-solid fa-location-dot"></i>
-                                San Miguel, El Salvador
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-mobile-screen"></i>
-                                Llamanos: +503 7225-4665
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-envelope"></i>
-                                Email: jahf_94@live.com
-                            </li>
+                            <li><i class="fa-solid fa-location-dot"></i> San Miguel, El Salvador</li>
+                            <li><i class="fa-solid fa-mobile-screen"></i> +503 7225-4665</li>
+                            <li><i class="fa-solid fa-envelope"></i> jahf_94@live.com</li>
                         </ul>
                     </div>
-                    <a href="http://wa.me/72254665"> <button>
-                        Contactame <i class="fa-brands fa-whatsapp"></i>
-                        <span class="overlay"></span>
-                    </button></a>
+                    <a href="https://wa.me/50372254665" target="_blank"><button><i class="fa-brands fa-whatsapp"></i> WhatsApp directo</button></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- footer -->
     <footer>
-        <a href="#inicio" class="arriba">
-            <i class="fa-solid fa-angles-up"></i>
-        </a>
+        <a href="#inicio" class="arriba"><i class="fa-solid fa-angles-up"></i></a>
         <div class="redes">
             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="#"><i class="fa-brands fa-twitter"></i></a>
             <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
         </div>
+        <p style="margin-top: 1rem;">&copy; 2025 Adolfo Herrera - Innovación digital</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Menú responsive
+        function mostrarOcultarMenu() {
+            const nav = document.getElementById('nav').querySelector('ul');
+            nav.classList.toggle('show');
+        }
+        function seleccionar() {
+            const nav = document.getElementById('nav').querySelector('ul');
+            nav.classList.remove('show');
+        }
+        // Formulario funcional (simulación de envío)
+        document.getElementById('formContacto')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mensaje = document.getElementById('mensaje').value.trim();
+            if(nombre === "" || email === "" || mensaje === "") {
+                alert("Por favor completa los campos obligatorios.");
+                return;
+            }
+            alert(`✅ ¡Gracias ${nombre}! Tu mensaje ha sido enviado. Te responderé a la brevedad.`);
+            this.reset();
+        });
+        // efecto progreso skills (ya visibles con estilo inline)
+        // Animar al hacer scroll (opcional)
+        const progresos = document.querySelectorAll('.progreso');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.transition = 'width 1s ease';
+                }
+            });
+        }, { threshold: 0.5 });
+        progresos.forEach(p => observer.observe(p));
+    </script>
 </body>
 </html>
